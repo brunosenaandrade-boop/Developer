@@ -1,23 +1,10 @@
-import { logEvent, Analytics } from "firebase/analytics";
-import { initAnalytics } from "./firebase";
-
-let analytics: Analytics | null = null;
-
-const getAnalyticsInstance = async () => {
-  if (!analytics) {
-    analytics = await initAnalytics();
-  }
-  return analytics;
-};
-
-export const trackEvent = async (eventName: string, params?: Record<string, unknown>) => {
-  const analyticsInstance = await getAnalyticsInstance();
-  if (analyticsInstance) {
-    logEvent(analyticsInstance, eventName, params);
+// Analytics simples - usa apenas console em dev, pode ser expandido depois
+export const trackEvent = (eventName: string, params?: Record<string, unknown>) => {
+  if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
+    console.log(`[Analytics] ${eventName}`, params);
   }
 };
 
-// Eventos específicos
 export const trackChatOpened = () => trackEvent("chat_opened");
 export const trackChatMessageSent = () => trackEvent("chat_message_sent");
 export const trackWhatsAppClicked = (source: string) => trackEvent("whatsapp_clicked", { source });
