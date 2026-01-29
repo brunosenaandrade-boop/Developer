@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -20,18 +22,18 @@ export function Footer() {
 
           {/* Links */}
           <div className="flex items-center gap-6">
-            <a
+            <Link
               href="/privacidade"
               className="text-sm text-[var(--muted)] hover:text-white transition-colors"
             >
               Privacidade
-            </a>
-            <a
+            </Link>
+            <Link
               href="/termos"
               className="text-sm text-[var(--muted)] hover:text-white transition-colors"
             >
               Termos
-            </a>
+            </Link>
           </div>
         </div>
       </div>
