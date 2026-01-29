@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe, Database, Smartphone } from "lucide-react";
+import { Globe, Database, Smartphone, Zap, Plug, Rocket } from "lucide-react";
 
 const services = [
   {
@@ -18,9 +18,27 @@ const services = [
   },
   {
     icon: Smartphone,
-    title: "SaaS & Apps",
+    title: "Apps Mobile",
     description:
-      "Produtos digitais escaláveis. Do MVP ao produto completo, com arquitetura preparada para crescer.",
+      "Aplicativos para iOS e Android. Soluções nativas ou híbridas pensadas para a melhor experiência do usuário.",
+  },
+  {
+    icon: Rocket,
+    title: "SaaS & MVPs",
+    description:
+      "Produtos digitais escaláveis. Do MVP à plataforma completa, com arquitetura preparada para crescer.",
+  },
+  {
+    icon: Plug,
+    title: "APIs & Integrações",
+    description:
+      "Conecte seus sistemas. Integrações com gateways de pagamento, ERPs, CRMs e serviços de terceiros.",
+  },
+  {
+    icon: Zap,
+    title: "Automações",
+    description:
+      "Elimine tarefas repetitivas. Fluxos automatizados que economizam tempo e reduzem erros operacionais.",
   },
 ];
 
@@ -45,7 +63,7 @@ export function Services() {
         </motion.div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
