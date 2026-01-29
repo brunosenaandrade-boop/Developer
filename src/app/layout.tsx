@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bsdeveloper.com.br"),
+  metadataBase: new URL("https://www.bsdeveloper.com.br"),
   title: "BS Developer | Desenvolvimento Web & Sistemas",
   description:
     "Seu projeto digital, do zero à produção. Sites, sistemas e apps desenvolvidos com a atenção que seu negócio merece.",
@@ -22,14 +22,14 @@ export const metadata: Metadata = {
     "desenvolvedor",
     "freelancer",
   ],
-  authors: [{ name: "Bruno Sena", url: "https://bsdeveloper.com.br" }],
+  authors: [{ name: "Bruno Sena", url: "https://www.bsdeveloper.com.br" }],
   creator: "BS Developer",
   publisher: "BS Developer",
   robots: "index, follow",
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://bsdeveloper.com.br",
+    url: "https://www.bsdeveloper.com.br",
     siteName: "BS Developer",
     title: "BS Developer | Desenvolvimento Web & Sistemas",
     description:
@@ -50,7 +50,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "BS Developer",
-  url: "https://bsdeveloper.com.br",
+  url: "https://www.bsdeveloper.com.br",
   description:
     "Desenvolvimento web sob demanda. Sites, sistemas e apps para empresas e empreendedores.",
   address: {
