@@ -50,7 +50,7 @@ const generateResponse = (userInput: string, messageCount: number): string => {
   }
 
   if (input.includes("onde") || input.includes("endereço") || input.includes("endereco") || input.includes("cidade") || input.includes("localização") || input.includes("localizacao")) {
-    return "Ficamos em Capivari de Baixo, Santa Catarina. Mas trabalhamos com clientes de todo o Brasil de forma remota. A comunicação é toda online, então a distância não é problema!";
+    return "Ficamos em Tubarão, Santa Catarina. Mas trabalhamos com clientes de todo o Brasil de forma remota. A comunicação é toda online, então a distância não é problema!";
   }
 
   if (input.includes("portfólio") || input.includes("portfolio") || input.includes("trabalhos") || input.includes("projetos") || input.includes("exemplos")) {

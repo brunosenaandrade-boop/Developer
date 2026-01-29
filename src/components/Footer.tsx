@@ -32,13 +32,9 @@ export function Footer() {
                 <Mail size={14} />
                 contato@bsdeveloper.com.br
               </a>
-              <div className="flex items-start gap-2 text-sm text-[var(--muted)]">
-                <MapPin size={14} className="mt-0.5 shrink-0" />
-                <span>
-                  Rua João Rodrigues Martins, 101
-                  <br />
-                  Capivari de Baixo/SC
-                </span>
+              <div className="flex items-center gap-2 text-sm text-[var(--muted)]">
+                <MapPin size={14} className="shrink-0" />
+                <span>Tubarão/SC</span>
               </div>
             </div>
           </div>

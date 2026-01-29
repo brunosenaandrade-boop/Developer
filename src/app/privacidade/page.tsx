@@ -134,8 +134,7 @@ export default function Privacidade() {
               </a>
             </p>
             <p className="mt-2">
-              BS Developer — Rua João Rodrigues Martins, 101 — Capivari de
-              Baixo/SC
+              BS Developer — Tubarão/SC
             </p>
           </section>
         </div>

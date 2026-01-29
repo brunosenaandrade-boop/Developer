@@ -139,7 +139,7 @@ export default function Termos() {
             <p>
               Estes termos são regidos pelas leis da República Federativa do
               Brasil. Qualquer disputa será resolvida no foro da Comarca de
-              Capivari de Baixo/SC.
+              Tubarão/SC.
             </p>
           </section>
 
@@ -159,8 +159,7 @@ export default function Termos() {
               </a>
             </p>
             <p className="mt-2">
-              BS Developer — Rua João Rodrigues Martins, 101 — Capivari de
-              Baixo/SC
+              BS Developer — Tubarão/SC
             </p>
           </section>
         </div>
