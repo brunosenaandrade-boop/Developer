@@ -34,24 +34,44 @@ export const metadata: Metadata = {
     title: "BS Developer | Desenvolvimento Web & Sistemas",
     description:
       "Seu projeto digital, do zero à produção. Sites, sistemas e apps desenvolvidos com a atenção que seu negócio merece.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "BS Developer - Desenvolvimento Web & Sistemas",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "BS Developer | Desenvolvimento Web & Sistemas",
     description:
       "Seu projeto digital, do zero à produção. Sites, sistemas e apps desenvolvidos com a atenção que seu negócio merece.",
-    images: ["/og-image.jpg"],
   },
   icons: {
     icon: "/favicon.ico",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "BS Developer",
+  url: "https://bsdeveloper.com.br",
+  description:
+    "Desenvolvimento web sob demanda. Sites, sistemas e apps para empresas e empreendedores.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Tubarão",
+    addressRegion: "SC",
+    addressCountry: "BR",
+  },
+  telephone: "+5548998649898",
+  areaServed: "BR",
+  serviceType: [
+    "Desenvolvimento de Sites",
+    "Landing Pages",
+    "Sistemas Web",
+    "Aplicativos Mobile",
+    "SaaS",
+    "APIs e Integrações",
+  ],
+  founder: {
+    "@type": "Person",
+    name: "Bruno Sena",
   },
 };
 
@@ -62,6 +82,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${inter.variable} antialiased`}>{children}</body>
     </html>
   );
