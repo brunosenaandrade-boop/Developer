@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { MessageSquare, FileText, Rocket } from "lucide-react";
 import Image from "next/image";
@@ -32,6 +33,31 @@ const steps = [
 ];
 
 export function Process() {
+  const [activeStep, setActiveStep] = useState(0);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    cardRefs.current.forEach((ref, index) => {
+      if (!ref) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveStep(index);
+          }
+        },
+        { threshold: 0.5, rootMargin: "-20% 0px -20% 0px" }
+      );
+
+      observer.observe(ref);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
   return (
     <section
       id="processo"
@@ -60,13 +86,15 @@ export function Process() {
               {steps.map((step, idx) => (
                 <li
                   key={step.number}
-                  className={`flex items-center gap-4 ${
-                    idx === 0 ? "text-white" : "text-neutral-500"
+                  className={`flex items-center gap-4 transition-colors duration-300 ${
+                    idx === activeStep ? "text-white" : "text-neutral-500"
                   }`}
                 >
                   <span
-                    className={`h-[1px] w-8 ${
-                      idx === 0 ? "bg-white" : "bg-neutral-800"
+                    className={`h-[1px] transition-all duration-300 ${
+                      idx === activeStep
+                        ? "w-8 bg-white"
+                        : "w-4 bg-neutral-800"
                     }`}
                   />
                   {step.title}
@@ -80,6 +108,7 @@ export function Process() {
             {steps.map((step, index) => (
               <motion.div
                 key={step.number}
+                ref={(el) => { cardRefs.current[index] = el; }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
