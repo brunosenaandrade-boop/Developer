@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MessageSquare, FileText, Rocket } from "lucide-react";
+import Image from "next/image";
 
 const steps = [
   {
@@ -10,6 +11,7 @@ const steps = [
     title: "Conversa",
     description:
       "Entendemos sua necessidade, seus objetivos e o contexto do seu negócio. Sem compromisso.",
+    image: "/images/process_conversa_3d.png",
   },
   {
     icon: FileText,
@@ -17,6 +19,7 @@ const steps = [
     title: "Proposta",
     description:
       "Apresentamos uma proposta clara com escopo, prazo e investimento. Você decide se faz sentido.",
+    image: "/images/process_proposta_3d.png",
   },
   {
     icon: Rocket,
@@ -24,6 +27,7 @@ const steps = [
     title: "Desenvolvimento",
     description:
       "Colocamos a mão na massa. Você acompanha o progresso e recebe seu projeto funcionando.",
+    image: "/images/process_desenvolvimento_3d.png",
   },
 ];
 
@@ -82,38 +86,49 @@ export function Process() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="relative bg-[#0a0a0a] border border-white/5 rounded-2xl p-10 transition-all duration-300 hover:border-white/20 overflow-hidden">
-                  {/* Background grid */}
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px)",
-                      backgroundSize: "100% 40px",
-                    }}
-                  />
+                <div className="relative bg-[#0a0a0a] border border-white/5 rounded-2xl transition-all duration-300 hover:border-white/20 overflow-hidden">
+                  {/* Image */}
+                  <div className="relative aspect-[16/9] bg-neutral-900 overflow-hidden">
+                    <Image
+                      src={step.image}
+                      alt={step.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
+                  </div>
 
-                  <div className="relative z-10">
-                    {/* Step header */}
-                    <div className="flex items-center justify-between mb-8">
-                      <div className="w-14 h-14 border border-white/10 rounded-full flex items-center justify-center">
-                        <step.icon
-                          size={22}
-                          className="text-white/70 group-hover:text-white transition-colors"
-                        />
+                  {/* Content */}
+                  <div className="p-10 relative">
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px)",
+                        backgroundSize: "100% 40px",
+                      }}
+                    />
+
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-between mb-6">
+                        <div className="w-12 h-12 border border-white/10 rounded-full flex items-center justify-center">
+                          <step.icon
+                            size={20}
+                            className="text-white/70 group-hover:text-white transition-colors"
+                          />
+                        </div>
+                        <span className="text-lg font-display text-white/20">
+                          {step.number}
+                        </span>
                       </div>
-                      <span className="text-lg font-display text-white/20">
-                        {step.number}
-                      </span>
-                    </div>
 
-                    {/* Content */}
-                    <h3 className="text-2xl font-display font-medium text-white mb-3">
-                      {step.title}
-                    </h3>
-                    <p className="text-neutral-500 leading-relaxed max-w-sm">
-                      {step.description}
-                    </p>
+                      <h3 className="text-2xl font-display font-medium text-white mb-3">
+                        {step.title}
+                      </h3>
+                      <p className="text-neutral-500 leading-relaxed max-w-sm">
+                        {step.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </motion.div>

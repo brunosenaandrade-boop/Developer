@@ -1,25 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const projects = [
   {
     title: "Projeto Alpha",
     category: "Sistema Web",
     number: "01",
-    imagePlaceholder: "Imagem: Projeto 1 (16:9)",
+    image: "/images/case_alpha_3d.png",
   },
   {
     title: "Projeto Beta",
     category: "Landing Page",
     number: "02",
-    imagePlaceholder: "Imagem: Projeto 2 (16:9)",
+    image: "/images/case_beta_3d.png",
   },
   {
     title: "Projeto Gamma",
     category: "App Mobile",
     number: "03",
-    imagePlaceholder: "Imagem: Projeto 3 (16:9)",
+    image: "/images/case_gamma_3d.png",
   },
 ];
 
@@ -61,15 +62,14 @@ export function Portfolio() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
-              {/* Image placeholder */}
+              {/* Image */}
               <div className="aspect-[16/9] overflow-hidden bg-neutral-900 mb-6 rounded-xl relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-[11px] font-mono text-neutral-600 uppercase tracking-widest text-center px-4">
-                    {project.imagePlaceholder}
-                  </span>
-                </div>
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-colors duration-300" />
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
               </div>
 
               {/* Info */}
