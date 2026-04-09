@@ -45,11 +45,7 @@ export function Header() {
       className="fixed top-0 left-0 right-0 z-50 px-6 py-5 transition-transform duration-300"
     >
       <div
-        className={`max-w-[1400px] mx-auto flex items-center justify-between rounded-full px-8 py-4 transition-all duration-300 ${
-          isScrolled
-            ? "glass"
-            : "bg-transparent border border-transparent"
-        }`}
+        className="max-w-[1400px] mx-auto flex items-center justify-between glass rounded-full px-8 py-4 transition-all duration-300"
       >
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">

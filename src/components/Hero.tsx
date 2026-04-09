@@ -41,7 +41,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-display text-5xl md:text-7xl lg:text-[6.5rem] font-medium tracking-tighter text-white leading-[0.95] mb-12"
+          className="font-display text-5xl md:text-7xl lg:text-[6.5rem] font-medium tracking-tighter text-white leading-[0.95] mb-12 mix-blend-difference"
         >
           <span className="mask-text">
             <span>SEU PROJETO</span>
@@ -54,7 +54,7 @@ export function Hero() {
           </span>
         </motion.h1>
 
-        {/* Bottom bar */}
+        {/* Bottom bar — stats only */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -65,32 +65,39 @@ export function Hero() {
             Sites, sistemas e apps desenvolvidos com a atenção que seu negócio
             merece.
           </p>
-          <div className="flex items-center gap-8 mt-6 md:mt-0">
-            <div className="flex gap-12">
-              <div className="text-left">
-                <div className="text-2xl font-display font-bold">50+</div>
-                <div className="text-[10px] uppercase tracking-widest text-neutral-500">
-                  Projetos
-                </div>
-              </div>
-              <div className="text-left">
-                <div className="text-2xl font-display font-bold">100%</div>
-                <div className="text-[10px] uppercase tracking-widest text-neutral-500">
-                  Satisfação
-                </div>
+          <div className="flex gap-12 mt-6 md:mt-0">
+            <div className="text-left">
+              <div className="text-2xl font-display font-bold">50+</div>
+              <div className="text-[10px] uppercase tracking-widest text-neutral-500">
+                Projetos
               </div>
             </div>
-            <button
-              onClick={handleWhatsAppClick}
-              className="btn btn-whatsapp text-xs group ml-4"
-            >
-              Iniciar Conversa
-              <ArrowRight
-                size={14}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </button>
+            <div className="text-left">
+              <div className="text-2xl font-display font-bold">100%</div>
+              <div className="text-[10px] uppercase tracking-widest text-neutral-500">
+                Satisfação
+              </div>
+            </div>
           </div>
+        </motion.div>
+
+        {/* CTA — separated below */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="mt-12"
+        >
+          <button
+            onClick={handleWhatsAppClick}
+            className="btn btn-whatsapp text-xs group"
+          >
+            Iniciar Conversa
+            <ArrowRight
+              size={14}
+              className="group-hover:translate-x-1 transition-transform"
+            />
+          </button>
         </motion.div>
       </div>
     </section>
