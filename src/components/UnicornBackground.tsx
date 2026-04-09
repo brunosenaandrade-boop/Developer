@@ -17,7 +17,7 @@ export function UnicornBackground() {
           "linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)",
       }}
     >
-      <div className="w-full h-full" style={{ transform: "scale(1.15)", transformOrigin: "center center" }}>
+      <div className="w-full h-full" style={{ transform: "scale(1.60)", transformOrigin: "center center" }}>
         <UnicornScene
           projectId="JO5iLzIUqYHumK5vHjV4"
           sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.6/dist/unicornStudio.umd.js"
