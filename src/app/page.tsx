@@ -8,10 +8,12 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { ChatBot } from "@/components/ChatBot";
 import { MetaPixel } from "@/components/MetaPixel";
+import { UnicornBackground } from "@/components/UnicornBackground";
 
 export default function Home() {
   return (
     <>
+      <UnicornBackground />
       <Header />
       <main>
         <Hero />
