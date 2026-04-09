@@ -27,6 +27,11 @@ export function UnicornBackground() {
         fps={60}
         lazyLoad={true}
       />
+      {/* Cover watermark */}
+      <div
+        className="absolute bottom-0 right-0 bg-[#030303]"
+        style={{ width: 180, height: 32, zIndex: 10 }}
+      />
     </div>
   );
 }
