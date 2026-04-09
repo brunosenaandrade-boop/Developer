@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { trackWhatsAppClicked } from "@/lib/analytics";
 
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5548998649898";
+const WHATSAPP_NUMBER =
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5548998649898";
 
 export function WhatsAppButton() {
   const handleClick = () => {
@@ -21,7 +22,7 @@ export function WhatsAppButton() {
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1, type: "spring", stiffness: 200 }}
       onClick={handleClick}
-      className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-[var(--whatsapp)] text-white flex items-center justify-center shadow-lg hover:bg-[var(--whatsapp-hover)] hover:scale-110 transition-all"
+      className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_8px_30px_rgba(37,211,102,0.3)] hover:bg-[#20BD5A] hover:scale-110 transition-all"
       aria-label="Abrir WhatsApp"
     >
       <MessageCircle size={24} />

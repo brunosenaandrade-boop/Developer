@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { trackWhatsAppClicked } from "@/lib/analytics";
 
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5548998649898";
+const WHATSAPP_NUMBER =
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5548998649898";
 
 export function CTA() {
   const handleWhatsAppClick = () => {
@@ -16,8 +17,11 @@ export function CTA() {
   };
 
   return (
-    <section className="py-24 md:py-32 border-t border-[var(--border)]">
-      <div className="max-w-4xl mx-auto px-6">
+    <section className="py-32 md:py-40 px-6 border-t border-white/5 relative">
+      {/* Glow effect */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-white/5 blur-[80px] rounded-full pointer-events-none -translate-y-1/2" />
+
+      <div className="max-w-[1400px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -25,27 +29,28 @@ export function CTA() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          {/* Headline */}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance">
-            Pronto para tirar sua ideia do papel?
+          <h2 className="text-4xl md:text-6xl lg:text-[5rem] font-display font-medium text-white mb-8 tracking-tight">
+            Pronto para tirar sua
+            <br />
+            <span className="text-neutral-500">ideia do papel?</span>
           </h2>
 
-          {/* Subheadline */}
-          <p className="text-lg text-[var(--muted-foreground)] mb-10 max-w-2xl mx-auto">
-            Vamos conversar sobre seu projeto. Sem compromisso, sem enrolação.
+          <p className="text-neutral-400 uppercase tracking-widest text-xs mb-12">
+            Vamos conversar sobre seu projeto. Sem compromisso.
           </p>
 
-          {/* CTA Button */}
           <button
             onClick={handleWhatsAppClick}
-            className="btn btn-whatsapp text-base group"
+            className="btn btn-whatsapp text-sm group"
           >
             Chamar no WhatsApp
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight
+              size={16}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </button>
 
-          {/* Trust note */}
-          <p className="text-sm text-[var(--muted)] mt-6">
+          <p className="text-[10px] text-neutral-600 uppercase tracking-widest mt-8">
             Respondemos em até 2 horas em horário comercial
           </p>
         </motion.div>

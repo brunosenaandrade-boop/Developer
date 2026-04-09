@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { trackWhatsAppClicked } from "@/lib/analytics";
 
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5548998649898";
+const WHATSAPP_NUMBER =
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5548998649898";
 
 export function Hero() {
   const handleWhatsAppClick = () => {
@@ -16,69 +17,80 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="min-h-screen flex flex-col overflow-hidden z-10 px-6 relative items-center justify-center">
       {/* Background */}
       <div className="absolute inset-0 bg-grid" />
-      <div className="absolute inset-0 bg-gradient-radial" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 z-0 pointer-events-none" />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center pt-20">
+      <div className="max-w-[1400px] mx-auto text-center relative z-10">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] bg-[var(--card)] text-sm text-[var(--muted-foreground)] mb-8"
+          className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-12"
         >
-          <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse-slow" />
-          Desenvolvimento sob demanda
+          <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+          <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-neutral-300">
+            Desenvolvimento sob demanda
+          </span>
         </motion.div>
 
         {/* Headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-balance"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="font-display text-5xl md:text-7xl lg:text-[6.5rem] font-medium tracking-tighter text-white leading-[0.95] mb-12"
         >
-          Seu projeto digital,{" "}
-          <span className="text-gradient">do zero à produção.</span>
+          <span className="mask-text">
+            <span>SEU PROJETO</span>
+          </span>
+          <span className="mask-text">
+            <span className="text-neutral-500">DIGITAL</span>
+          </span>
+          <span className="mask-text">
+            <span>DO ZERO</span>
+          </span>
         </motion.h1>
 
-        {/* Subheadline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-lg md:text-xl text-[var(--muted-foreground)] max-w-2xl mx-auto mb-10 text-balance"
-        >
-          Sites, sistemas e apps desenvolvidos com a atenção que seu negócio merece.
-        </motion.p>
-
-        {/* CTA */}
+        {/* Bottom bar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-col md:flex-row items-center justify-between w-full max-w-4xl mx-auto mt-12 border-t border-white/10 pt-8"
         >
-          <button
-            onClick={handleWhatsAppClick}
-            className="btn btn-whatsapp text-base group"
-          >
-            Iniciar Conversa
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </button>
-        </motion.div>
-
-        {/* Subtle indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2"
-        >
-          <div className="w-px h-16 bg-gradient-to-b from-transparent via-[var(--border)] to-transparent" />
+          <p className="text-neutral-400 text-sm max-w-xs text-left">
+            Sites, sistemas e apps desenvolvidos com a atenção que seu negócio
+            merece.
+          </p>
+          <div className="flex items-center gap-8 mt-6 md:mt-0">
+            <div className="flex gap-12">
+              <div className="text-left">
+                <div className="text-2xl font-display font-bold">50+</div>
+                <div className="text-[10px] uppercase tracking-widest text-neutral-500">
+                  Projetos
+                </div>
+              </div>
+              <div className="text-left">
+                <div className="text-2xl font-display font-bold">100%</div>
+                <div className="text-[10px] uppercase tracking-widest text-neutral-500">
+                  Satisfação
+                </div>
+              </div>
+            </div>
+            <button
+              onClick={handleWhatsAppClick}
+              className="btn btn-whatsapp text-xs group ml-4"
+            >
+              Iniciar Conversa
+              <ArrowRight
+                size={14}
+                className="group-hover:translate-x-1 transition-transform"
+              />
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>

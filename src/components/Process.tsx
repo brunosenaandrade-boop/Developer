@@ -29,57 +29,96 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="processo" className="py-24 md:py-32 border-t border-[var(--border)]">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Como funciona
-          </h2>
-          <p className="text-[var(--muted-foreground)] max-w-xl mx-auto">
-            Processo simples e transparente do início ao fim
-          </p>
-        </motion.div>
+    <section
+      id="processo"
+      className="py-32 md:py-40 px-6 border-t border-white/5"
+    >
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
+          {/* Left - Sticky header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="lg:sticky lg:top-32 h-fit"
+          >
+            <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-8">
+              Como
+              <br />
+              funciona
+            </h2>
+            <p className="text-neutral-400 text-lg max-w-md mb-12">
+              Processo simples e transparente do início ao fim. Sem surpresas,
+              sem enrolação.
+            </p>
+            <ul className="space-y-4">
+              {steps.map((step, idx) => (
+                <li
+                  key={step.number}
+                  className={`flex items-center gap-4 ${
+                    idx === 0 ? "text-white" : "text-neutral-500"
+                  }`}
+                >
+                  <span
+                    className={`h-[1px] w-8 ${
+                      idx === 0 ? "bg-white" : "bg-neutral-800"
+                    }`}
+                  />
+                  {step.title}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
 
-        {/* Steps */}
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.number}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative"
-            >
-              {/* Connector line (hidden on mobile and last item) */}
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-8 left-[calc(50%+3rem)] w-[calc(100%-3rem)] h-px bg-[var(--border)]" />
-              )}
+          {/* Right - Step cards */}
+          <div className="flex flex-col gap-8">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group"
+              >
+                <div className="relative bg-[#0a0a0a] border border-white/5 rounded-2xl p-10 transition-all duration-300 hover:border-white/20 overflow-hidden">
+                  {/* Background grid */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px)",
+                      backgroundSize: "100% 40px",
+                    }}
+                  />
 
-              <div className="text-center">
-                {/* Icon */}
-                <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-full bg-[var(--card)] border border-[var(--border)] mb-6">
-                  <step.icon size={24} className="text-[var(--accent)]" />
-                  <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[var(--accent)] text-white text-xs font-bold flex items-center justify-center">
-                    {step.number.replace("0", "")}
-                  </span>
+                  <div className="relative z-10">
+                    {/* Step header */}
+                    <div className="flex items-center justify-between mb-8">
+                      <div className="w-14 h-14 border border-white/10 rounded-full flex items-center justify-center">
+                        <step.icon
+                          size={22}
+                          className="text-white/70 group-hover:text-white transition-colors"
+                        />
+                      </div>
+                      <span className="text-lg font-display text-white/20">
+                        {step.number}
+                      </span>
+                    </div>
+
+                    {/* Content */}
+                    <h3 className="text-2xl font-display font-medium text-white mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-neutral-500 leading-relaxed max-w-sm">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-
-                {/* Content */}
-                <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
-                <p className="text-[var(--muted-foreground)] leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
